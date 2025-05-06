@@ -2,13 +2,17 @@ import sys
 
 import pygame
 
+from player import Player
+
 
 class Game:
     def __init__(self):
-        pass
+        player_sprite = Player((SCREEN_WIDTH / 2, SCREEN_HEIGHT), SCREEN_WIDTH, 5)
+        self.player = pygame.sprite.GroupSingle(player_sprite)
 
     def run(self):
-        pass
+        self.player.update()
+        self.player.draw(GAME_WINDOW)
 
 
 # --- Main Game Loop ---
