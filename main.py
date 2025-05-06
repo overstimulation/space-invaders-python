@@ -163,6 +163,12 @@ class Game:
         score_rect = score_surface.get_rect(topleft=(10, -10))
         GAME_WINDOW.blit(score_surface, score_rect)
 
+    def victory_message(self):
+        if not self.aliens.sprites():
+            victory_surface = self.font.render("YOU WON", False, "white")
+            victory_rect = victory_surface.get_rect(center=(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2))
+            GAME_WINDOW.blit(victory_surface, victory_rect)
+
     def run(self):
         self.player.update()
         self.aliens.update(self.alien_direction)
@@ -181,6 +187,7 @@ class Game:
         self.extra_alien.draw(GAME_WINDOW)
         self.display_lives()
         self.display_score()
+        self.victory_message()
 
 
 class CRT:
