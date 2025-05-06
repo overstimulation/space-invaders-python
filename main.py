@@ -248,6 +248,15 @@ if __name__ == "__main__":
 
     # --- Pygame Setup ---
     pygame.init()
+
+    try:
+        icon_surface = pygame.image.load("assets/textures/yellow_enemy.png")
+        pygame.display.set_icon(icon_surface)
+    except pygame.error:
+        pass  # If icon fails to load, continue with default
+
+    pygame.display.set_caption("Space Invaders by @overstimulation on GitHub")
+
     GAME_WINDOW = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
     main(GAME_WINDOW)
