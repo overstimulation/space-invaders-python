@@ -12,6 +12,8 @@ class Game:
 
     def run(self):
         self.player.update()
+
+        self.player.sprite.lasers.draw(GAME_WINDOW)
         self.player.draw(GAME_WINDOW)
 
 
